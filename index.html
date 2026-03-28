@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>홍길동 — 웹 명함</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-orb bg-orb--1" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb--2" aria-hidden="true"></div>
+
+  <main class="card" id="card">
+    <div class="card__shine" aria-hidden="true"></div>
+
+    <div class="card__avatar" aria-hidden="true">
+      <svg class="character" viewBox="0 0 240 268" role="img" aria-label="캐릭터 프로필">
+        <defs>
+          <linearGradient id="hairBase" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#1a2838" />
+            <stop offset="50%" stop-color="#0d1522" />
+            <stop offset="100%" stop-color="#162030" />
+          </linearGradient>
+          <linearGradient id="hairShine" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#6eb5ff" stop-opacity="0" />
+            <stop offset="45%" stop-color="#8ec8ff" stop-opacity="0.55" />
+            <stop offset="70%" stop-color="#6eb5ff" stop-opacity="0.2" />
+            <stop offset="100%" stop-color="#6eb5ff" stop-opacity="0" />
+          </linearGradient>
+          <radialGradient id="skinFace" cx="36%" cy="32%" r="68%">
+            <stop offset="0%" stop-color="#fff0e6" />
+            <stop offset="42%" stop-color="#f2cdb8" />
+            <stop offset="100%" stop-color="#c99a86" />
+          </radialGradient>
+          <radialGradient id="irisGrad" cx="40%" cy="40%" r="60%">
+            <stop offset="0%" stop-color="#9fd4ff" />
+            <stop offset="70%" stop-color="#3d7ab8" />
+            <stop offset="100%" stop-color="#1e3f5c" />
+          </radialGradient>
+          <linearGradient id="hoodieGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#3d5570" />
+            <stop offset="100%" stop-color="#243548" />
+          </linearGradient>
+          <linearGradient id="glassMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#d4e9ff" />
+            <stop offset="40%" stop-color="#6eb5ff" />
+            <stop offset="100%" stop-color="#3d7ec4" />
+          </linearGradient>
+          <linearGradient id="hpCup" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#3a4556" />
+            <stop offset="100%" stop-color="#1e2633" />
+          </linearGradient>
+          <filter id="charShadow" x="-25%" y="-25%" width="150%" height="150%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2.8" result="b" />
+            <feOffset dx="0" dy="3" in="b" result="o" />
+            <feComponentTransfer in="o" result="a">
+              <feFuncA type="linear" slope="0.28" />
+            </feComponentTransfer>
+            <feMerge>
+              <feMergeNode in="a" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+          <clipPath id="faceClip">
+            <ellipse cx="120" cy="124" rx="54" ry="60" />
+          </clipPath>
+        </defs>
+
+        <g transform="translate(0, 6)">
+          <!-- hoodie body -->
+          <path
+            d="M22 218 Q120 178 218 218 L228 268 H12 Z"
+            fill="url(#hoodieGrad)"
+            stroke="rgba(110,181,255,0.22)"
+            stroke-width="1.2"
+          />
+          <path d="M88 210 Q120 198 152 210" fill="none" stroke="rgba(0,0,0,0.2)" stroke-width="2" stroke-linecap="round" />
+          <path d="M98 208 v38 M142 208 v38" stroke="#5a7394" stroke-width="2.4" stroke-linecap="round" />
+
+          <!-- headphone band (behind hair) -->
+          <path
+            d="M52 118 Q120 42 188 118"
+            fill="none"
+            stroke="#252d3a"
+            stroke-width="14"
+            stroke-linecap="round"
+          />
+          <path
+            d="M52 118 Q120 42 188 118"
+            fill="none"
+            stroke="url(#glassMetal)"
+            stroke-width="3"
+            stroke-linecap="round"
+            opacity="0.35"
+          />
+
+          <!-- hair volume (back) -->
+          <path
+            fill="url(#hairBase)"
+            d="M38 118 Q32 48 120 22 Q208 48 202 118 Q205 88 120 72 Q35 88 38 118Z"
+          />
+          <path
+            fill="url(#hairShine)"
+            d="M58 38 Q120 18 182 38 Q175 58 120 48 Q65 58 58 38Z"
+            opacity="0.85"
+          />
+
+          <!-- ears -->
+          <ellipse cx="62" cy="126" rx="13" ry="16" fill="#e8b5a2" />
+          <ellipse cx="178" cy="126" rx="13" ry="16" fill="#e8b5a2" />
+          <ellipse cx="62" cy="128" rx="6" ry="8" fill="#d49888" opacity="0.45" />
+          <ellipse cx="178" cy="128" rx="6" ry="8" fill="#d49888" opacity="0.45" />
+
+          <!-- neck -->
+          <path d="M86 168 L86 212 L154 212 L154 168 Q120 182 86 168Z" fill="#d9a08c" filter="url(#charShadow)" />
+
+          <!-- face -->
+          <ellipse cx="120" cy="124" rx="52" ry="58" fill="url(#skinFace)" />
+
+          <!-- cheek / jaw soft shadow -->
+          <g clip-path="url(#faceClip)">
+            <ellipse cx="120" cy="152" rx="40" ry="28" fill="#b87d6a" opacity="0.12" />
+          </g>
+
+          <!-- nose -->
+          <path d="M120 122 v14" stroke="#c08b78" stroke-width="2.2" stroke-linecap="round" opacity="0.55" />
+          <ellipse cx="118" cy="138" rx="3.5" ry="2.5" fill="#c08b78" opacity="0.2" />
+
+          <!-- blush -->
+          <ellipse cx="78" cy="134" rx="16" ry="9" fill="#ff7b6a" opacity="0.18" />
+          <ellipse cx="162" cy="134" rx="16" ry="9" fill="#ff7b6a" opacity="0.18" />
+
+          <!-- eyebrows -->
+          <path d="M72 102 Q86 94 100 100" fill="none" stroke="#1c2533" stroke-width="3.2" stroke-linecap="round" />
+          <path d="M140 100 Q154 94 168 102" fill="none" stroke="#1c2533" stroke-width="3.2" stroke-linecap="round" />
+
+          <!-- eyes (sclera + iris + pupil + catchlight) -->
+          <g class="character__eye character__blink">
+            <ellipse cx="92" cy="118" rx="14" ry="15" fill="#fdfcfa" />
+            <ellipse cx="92" cy="119" rx="9" ry="10" fill="url(#irisGrad)" />
+            <ellipse cx="92" cy="120" rx="4.5" ry="5" fill="#0f1720" />
+            <circle cx="95" cy="116" r="2.8" fill="#fff" opacity="0.95" />
+            <circle cx="89" cy="122" r="1.4" fill="#fff" opacity="0.35" />
+          </g>
+          <g class="character__eye character__blink">
+            <ellipse cx="148" cy="118" rx="14" ry="15" fill="#fdfcfa" />
+            <ellipse cx="148" cy="119" rx="9" ry="10" fill="url(#irisGrad)" />
+            <ellipse cx="148" cy="120" rx="4.5" ry="5" fill="#0f1720" />
+            <circle cx="151" cy="116" r="2.8" fill="#fff" opacity="0.95" />
+            <circle cx="145" cy="122" r="1.4" fill="#fff" opacity="0.35" />
+          </g>
+
+          <!-- glasses -->
+          <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="68" y="104" width="38" height="30" rx="9" stroke="url(#glassMetal)" stroke-width="2.6" />
+            <rect x="134" y="104" width="38" height="30" rx="9" stroke="url(#glassMetal)" stroke-width="2.6" />
+            <line x1="106" y1="119" x2="134" y2="119" stroke="url(#glassMetal)" stroke-width="2.6" />
+            <line x1="68" y1="119" x2="56" y2="112" stroke="url(#glassMetal)" stroke-width="2.2" />
+            <line x1="172" y1="119" x2="184" y2="112" stroke="url(#glassMetal)" stroke-width="2.2" />
+            <line x1="92" y1="104" x2="92" y2="98" stroke="url(#glassMetal)" stroke-width="2" opacity="0.7" />
+            <line x1="153" y1="104" x2="153" y2="98" stroke="url(#glassMetal)" stroke-width="2" opacity="0.7" />
+          </g>
+
+          <!-- hair front / bangs -->
+          <path
+            fill="url(#hairBase)"
+            d="M48 96 Q58 52 120 44 Q182 52 192 96 Q170 78 120 70 Q70 78 48 96Z"
+          />
+          <path
+            fill="url(#hairShine)"
+            d="M62 58 Q120 48 178 58 L172 78 Q120 66 68 78 Z"
+            opacity="0.4"
+          />
+
+          <!-- mouth -->
+          <path
+            d="M100 148 Q120 162 140 148"
+            fill="none"
+            stroke="#b56b5e"
+            stroke-width="2.8"
+            stroke-linecap="round"
+          />
+
+          <!-- headphone cups -->
+          <ellipse cx="52" cy="126" rx="16" ry="20" fill="url(#hpCup)" stroke="#2a3444" stroke-width="2" />
+          <ellipse cx="188" cy="126" rx="16" ry="20" fill="url(#hpCup)" stroke="#2a3444" stroke-width="2" />
+          <circle cx="52" cy="126" r="5" fill="#1a222e" stroke="#6eb5ff" stroke-width="1.8" opacity="0.9" />
+          <circle cx="188" cy="126" r="5" fill="#1a222e" stroke="#6eb5ff" stroke-width="1.8" opacity="0.9" />
+          <ellipse cx="52" cy="126" rx="10" ry="12" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+          <ellipse cx="188" cy="126" rx="10" ry="12" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+        </g>
+      </svg>
+    </div>
+
+    <header class="card__header">
+      <h1 class="card__name">홍길동</h1>
+      <p class="card__role">개발자</p>
+      <p class="card__tagline">사용자에게 닿는 제품을 만드는 일을 좋아합니다.</p>
+    </header>
+
+    <ul class="card__contacts">
+      <li>
+        <a href="mailto:gildong@gmail.com" class="contact" data-copy="gildong@gmail.com">
+          <span class="contact__icon" aria-hidden="true">✉</span>
+          <span class="contact__text">gildong@gmail.com</span>
+        </a>
+      </li>
+      <li>
+        <a href="tel:01000000000" class="contact" data-copy="010-0000-0000">
+          <span class="contact__icon" aria-hidden="true">☎</span>
+          <span class="contact__text">010-0000-0000</span>
+        </a>
+      </li>
+    </ul>
+
+    <p class="toast" id="toast" role="status" aria-live="polite"></p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

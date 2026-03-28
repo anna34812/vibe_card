@@ -1,0 +1,229 @@
+:root {
+  --bg: #0f1419;
+  --card: rgba(28, 35, 45, 0.85);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --text: #e8ecf1;
+  --muted: #8b97a8;
+  --accent: #6eb5ff;
+  --accent-soft: rgba(110, 181, 255, 0.15);
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+  --radius: 24px;
+  --font-sans: "Noto Sans KR", "DM Sans", system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: var(--font-sans);
+  color: var(--text);
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.25rem;
+  overflow-x: hidden;
+}
+
+.bg-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-orb--1 {
+  width: min(420px, 90vw);
+  height: min(420px, 90vw);
+  background: radial-gradient(circle, #3d5a80 0%, transparent 70%);
+  top: -10%;
+  right: -5%;
+}
+
+.bg-orb--2 {
+  width: min(360px, 80vw);
+  height: min(360px, 80vw);
+  background: radial-gradient(circle, #6eb5ff 0%, transparent 65%);
+  bottom: -15%;
+  left: -10%;
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 400px;
+  padding: 2.25rem 2rem 2rem;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 32px 100px rgba(0, 0, 0, 0.5);
+}
+
+.card__shine {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    125deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.04) 50%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.card__avatar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.character {
+  width: 152px;
+  height: auto;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.4));
+}
+
+.character__eye.character__blink {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: blink 4.5s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%,
+  48%,
+  52%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.08);
+  }
+}
+
+.card__header {
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+.card__name {
+  margin: 0 0 0.35rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.card__role {
+  margin: 0 0 0.85rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.card__tagline {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.card__contacts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border-radius: 14px;
+  background: var(--accent-soft);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+.contact:hover {
+  background: rgba(110, 181, 255, 0.22);
+  border-color: rgba(110, 181, 255, 0.25);
+}
+
+.contact:active {
+  transform: scale(0.98);
+}
+
+.contact__icon {
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+
+.contact__text {
+  word-break: break-all;
+}
+
+.toast {
+  position: absolute;
+  left: 50%;
+  bottom: 1rem;
+  transform: translateX(-50%) translateY(8px);
+  margin: 0;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  color: var(--text);
+  background: rgba(110, 181, 255, 0.25);
+  border: 1px solid rgba(110, 181, 255, 0.35);
+  border-radius: 999px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  white-space: nowrap;
+}
+
+.toast.is-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .contact {
+    transition: none;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+
+  .character__eye.character__blink {
+    animation: none;
+  }
+}
